@@ -1,7 +1,8 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-const Table = React.forwardRef<
+// Shadcn UI Table components (for new code)
+const TableRoot = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
@@ -13,7 +14,7 @@ const Table = React.forwardRef<
     />
   </div>
 ))
-Table.displayName = "Table"
+TableRoot.displayName = "TableRoot"
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
@@ -34,21 +35,6 @@ const TableBody = React.forwardRef<
   />
 ))
 TableBody.displayName = "TableBody"
-
-const TableFooter = React.forwardRef<
-  HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <tfoot
-    ref={ref}
-    className={cn(
-      "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-      className
-    )}
-    {...props}
-  />
-))
-TableFooter.displayName = "TableFooter"
 
 const TableRow = React.forwardRef<
   HTMLTableRowElement,
@@ -92,19 +78,7 @@ const TableCell = React.forwardRef<
 ))
 TableCell.displayName = "TableCell"
 
-const TableCaption = React.forwardRef<
-  HTMLTableCaptionElement,
-  React.HTMLAttributes<HTMLTableCaptionElement>
->(({ className, ...props }, ref) => (
-  <caption
-    ref={ref}
-    className={cn("mt-4 text-sm text-muted-foreground", className)}
-    {...props}
-  />
-))
-TableCaption.displayName = "TableCaption"
-
-// Keep backward compatibility with old API
+// Backward compatibility: Keep old compound component pattern
 const TableHeaderCell = TableHead
 const TableEmptyState: React.FC<{
   title: string
@@ -112,25 +86,32 @@ const TableEmptyState: React.FC<{
   icon?: React.ElementType
   action?: React.ReactNode
 }> = ({ title, message, icon: Icon, action }) => (
-  <tr>
-    <td colSpan={100} className="text-center py-16 px-4">
-      {Icon && <Icon className="mx-auto h-12 w-12 text-muted-foreground" aria-hidden="true" />}
-      <p className="mt-4 text-foreground font-semibold">{title}</p>
-      <p className="text-sm text-muted-foreground mt-1">{message}</p>
-      {action && <div className="mt-6">{action}</div>}
-    </td>
-  </tr>
+  <div className="text-center py-16 px-4">
+    {Icon && <Icon className="mx-auto h-12 w-12 text-muted-foreground" aria-hidden="true" />}
+    <p className="mt-4 text-foreground font-semibold">{title}</p>
+    <p className="text-sm text-muted-foreground mt-1">{message}</p>
+    {action && <div className="mt-6">{action}</div>}
+  </div>
 )
 
+// Export compound component (backward compatibility)
+export const Table = Object.assign(TableRoot, {
+  Header: TableHeader,
+  HeaderCell: TableHeaderCell,
+  Body: TableBody,
+  Row: TableRow,
+  Cell: TableCell,
+  EmptyState: TableEmptyState,
+})
+
+// Also export individual components (new Shadcn UI style)
 export {
-  Table,
+  TableRoot,
   TableHeader,
   TableBody,
-  TableFooter,
-  TableHead,
   TableRow,
+  TableHead,
   TableCell,
-  TableCaption,
   TableHeaderCell,
   TableEmptyState,
 }

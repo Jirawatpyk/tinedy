@@ -22,7 +22,12 @@
       "Bash(move index.html src/index.html)",
       "Bash(vercel --prod --yes --env VITE_SUPABASE_URL=https://ravdqtsfstfzqaghvgzq.supabase.co --env VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJhdmRxdHNmc3RmenFhZ2h2Z3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAxNzgzMTEsImV4cCI6MjA3NTc1NDMxMX0.l_-VJb-qd34j7vxGhgs6szGNI6nlgxAPCWyMxUzPTJ0)",
       "Bash(cat package.json)",
-      "Bash(git commit -m \"Fix: Downgrade react-dom to 18.3.1 to match React version\n\n- Change react-dom from 19.2.0 to 18.3.1 for compatibility\n- Fixes dependency conflict during Vercel build\")"
+      "Bash(git commit -m \"Fix: Downgrade react-dom to 18.3.1 to match React version\n\n- Change react-dom from 19.2.0 to 18.3.1 for compatibility\n- Fixes dependency conflict during Vercel build\")",
+      "Bash(vercel --prod)",
+      "Bash(npm install --legacy-peer-deps class-variance-authority clsx tailwind-merge lucide-react)",
+      "Bash(git add src/package.json)",
+      "Bash(git commit -m \"Fix: Downgrade react-dom in src/package.json to 18.3.1\n\n- Also fix react-dom version in src folder\n- Ensures compatibility across all package.json files\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Setup Shadcn UI dependencies and configuration\n\n- Install core Shadcn UI packages: class-variance-authority, clsx, tailwind-merge, lucide-react\n- Fix React version mismatch (react-dom 18.3.1 to match react)\n- Add tailwind.config.js with Shadcn UI theme configuration\n- Move index.html to src/ folder for proper Vite structure\n- Remove CDN import maps in favor of npm packages\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

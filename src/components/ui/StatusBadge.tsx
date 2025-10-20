@@ -1,13 +1,16 @@
 import React from 'react';
 import { BookingStatus } from '../../types';
 import { STATUS_CONFIG } from '../../constants';
+import { Badge } from './Badge';
+import { cn } from '@/lib/utils';
 
 interface StatusBadgeProps {
   status: BookingStatus;
   showDot?: boolean;
+  className?: string;
 }
 
-const StatusBadge: React.FC<StatusBadgeProps> = ({ status, showDot = false }) => {
+const StatusBadge: React.FC<StatusBadgeProps> = ({ status, showDot = false, className }) => {
   const config = STATUS_CONFIG[status];
 
   if (!config) {
@@ -15,10 +18,10 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status, showDot = false }) =>
   }
 
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${config.color}`}>
-      {showDot && <span className={`w-2 h-2 mr-1.5 rounded-full ${config.dotColor}`}></span>}
+    <Badge className={cn(config.color, className)}>
+      {showDot && <span className={cn("w-2 h-2 mr-1.5 rounded-full", config.dotColor)}></span>}
       {config.label}
-    </span>
+    </Badge>
   );
 };
 

@@ -14,7 +14,15 @@
       "Bash(npm install --legacy-peer-deps)",
       "Bash(git add -A)",
       "Bash(git commit -m \"Fix: Move config files to root for Vercel deployment\n\n- Move package.json, vite.config.ts, tsconfig.json, index.html to root\n- Update vite.config.ts to set root directory to ''src''\n- Configure build output to ''dist'' directory\n- Update vercel.json with correct build settings\")",
-      "Bash(git push origin main)"
+      "Bash(git push origin main)",
+      "Bash(vercel --version)",
+      "Bash(npm install -g vercel)",
+      "Bash(vercel login)",
+      "Bash(npm run dev)",
+      "Bash(move index.html src/index.html)",
+      "Bash(vercel --prod --yes --env VITE_SUPABASE_URL=https://ravdqtsfstfzqaghvgzq.supabase.co --env VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJhdmRxdHNmc3RmenFhZ2h2Z3pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAxNzgzMTEsImV4cCI6MjA3NTc1NDMxMX0.l_-VJb-qd34j7vxGhgs6szGNI6nlgxAPCWyMxUzPTJ0)",
+      "Bash(cat package.json)",
+      "Bash(git commit -m \"Fix: Downgrade react-dom to 18.3.1 to match React version\n\n- Change react-dom from 19.2.0 to 18.3.1 for compatibility\n- Fixes dependency conflict during Vercel build\")"
     ],
     "deny": [],
     "ask": []

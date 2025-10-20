@@ -16,11 +16,23 @@ const TableRoot = React.forwardRef<
 ))
 TableRoot.displayName = "TableRoot"
 
+interface TableHeaderProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+  isSticky?: boolean
+}
+
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  TableHeaderProps
+>(({ className, isSticky, ...props }, ref) => (
+  <thead
+    ref={ref}
+    className={cn(
+      "[&_tr]:border-b",
+      isSticky && "sticky top-0 z-10 bg-background/80 backdrop-blur-sm",
+      className
+    )}
+    {...props}
+  />
 ))
 TableHeader.displayName = "TableHeader"
 

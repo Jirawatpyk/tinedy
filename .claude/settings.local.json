@@ -27,7 +27,10 @@
       "Bash(npm install --legacy-peer-deps class-variance-authority clsx tailwind-merge lucide-react)",
       "Bash(git add src/package.json)",
       "Bash(git commit -m \"Fix: Downgrade react-dom in src/package.json to 18.3.1\n\n- Also fix react-dom version in src folder\n- Ensures compatibility across all package.json files\")",
-      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Setup Shadcn UI dependencies and configuration\n\n- Install core Shadcn UI packages: class-variance-authority, clsx, tailwind-merge, lucide-react\n- Fix React version mismatch (react-dom 18.3.1 to match react)\n- Add tailwind.config.js with Shadcn UI theme configuration\n- Move index.html to src/ folder for proper Vite structure\n- Remove CDN import maps in favor of npm packages\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Setup Shadcn UI dependencies and configuration\n\n- Install core Shadcn UI packages: class-variance-authority, clsx, tailwind-merge, lucide-react\n- Fix React version mismatch (react-dom 18.3.1 to match react)\n- Add tailwind.config.js with Shadcn UI theme configuration\n- Move index.html to src/ folder for proper Vite structure\n- Remove CDN import maps in favor of npm packages\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(npm install --legacy-peer-deps -D tailwindcss postcss autoprefixer tailwindcss-animate)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Migrate to Shadcn UI (Phase 1 - Infrastructure)\n\n- Install Tailwind CSS properly (replace CDN with npm package)\n- Add tailwind.config.js with Shadcn UI theme\n- Add postcss.config.js for Tailwind processing\n- Create src/index.css with Shadcn UI CSS variables\n- Add cn() utility function to lib/utils.ts\n- Convert Button component to Shadcn UI with class-variance-authority\n- Remove Tailwind CDN from index.html\n- Import index.css in main entry point\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

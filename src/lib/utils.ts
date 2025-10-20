@@ -1,3 +1,14 @@
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+/**
+ * Utility function to merge Tailwind CSS classes with clsx
+ * Used by Shadcn UI components
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 /**
  * Formats a date string into a more readable format.
  * @param dateString The ISO date string (e.g., "2023-10-27") or a Date object.

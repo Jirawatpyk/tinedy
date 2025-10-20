@@ -4,7 +4,17 @@
       "Bash(git init)",
       "Bash(git config user.name \"Jirawatpyk\")",
       "Bash(git config user.email \"jirawat@tinedy.com\")",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"Initial commit: Ready for Vercel deployment\n\n- Complete CRM booking application with Admin and Staff portals\n- Supabase integration for backend (PostgreSQL, Auth, Realtime)\n- Environment variables configured for deployment\n- Documentation: CLAUDE.md and DEPLOYMENT.md included\n- Built with React 18, TypeScript, Tailwind CSS, Vite\")",
+      "Bash(git branch -M main)",
+      "Bash(git remote add origin https://github.com/Jirawatpyk/tinedy.git)",
+      "Bash(git push -u origin main)",
+      "Bash(git push -u origin main --force)",
+      "Bash(npm install)",
+      "Bash(npm install --legacy-peer-deps)",
+      "Bash(git add -A)",
+      "Bash(git commit -m \"Fix: Move config files to root for Vercel deployment\n\n- Move package.json, vite.config.ts, tsconfig.json, index.html to root\n- Update vite.config.ts to set root directory to ''src''\n- Configure build output to ''dist'' directory\n- Update vercel.json with correct build settings\")",
+      "Bash(git push origin main)"
     ],
     "deny": [],
     "ask": []

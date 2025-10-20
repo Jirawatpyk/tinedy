@@ -155,3 +155,67 @@ export {
   SelectScrollUpButton,
   SelectScrollDownButton,
 }
+
+// Legacy Select component for backward compatibility
+interface SelectOption {
+  value: string | number;
+  label: string;
+}
+
+interface LegacySelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
+  id: string;
+  label: React.ReactNode;
+  options: SelectOption[];
+  value: string | number;
+  onChange: (value: string) => void;
+  error?: string;
+  hasError?: boolean;
+  wrapperClassName?: string;
+  icon?: React.ReactNode;
+  placeholder?: string;
+}
+
+const LegacySelect: React.FC<LegacySelectProps> = ({
+  id,
+  label,
+  options,
+  value,
+  onChange,
+  error,
+  hasError,
+  wrapperClassName,
+  placeholder,
+  required,
+  disabled,
+}) => {
+  return (
+    <div className={wrapperClassName}>
+      {label && <label htmlFor={id} className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">{label}</label>}
+      <Select value={String(value)} onValueChange={onChange} disabled={disabled} required={required}>
+        <SelectTrigger
+          id={id}
+          className={cn(
+            error || hasError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''
+          )}
+        >
+          <SelectValue placeholder={placeholder || 'Select an option'} />
+        </SelectTrigger>
+        <SelectContent>
+          {placeholder && !required && (
+            <SelectItem value="">
+              {placeholder}
+            </SelectItem>
+          )}
+          {options.map(option => (
+            <SelectItem key={option.value} value={String(option.value)}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
+    </div>
+  )
+}
+
+export default LegacySelect

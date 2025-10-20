@@ -7,7 +7,13 @@ import {
     ArchiveBoxIcon, ArrowRightStartOnRectangleIcon, QueueListIcon, ChartBarSquareIcon,
     UserCircleIcon, ChevronDownIcon, CogIcon, ChartBarIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon, UserGroupIcon, ChatBubbleLeftEllipsisIcon
 } from '../ui/icons';
-import DropdownMenu, { DropdownMenuItem } from '../ui/DropdownMenu';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '../ui/DropdownMenu';
 
 interface SidebarProps {
   user: User | null;
@@ -82,9 +88,9 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onNavLinkClick }) => {
                 ))}
             </nav>
             <div className="p-2 border-t border-white/20 flex-shrink-0">
-                 <DropdownMenu 
-                      trigger={
-                        isSidebarCollapsed ? (
+                 <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        {isSidebarCollapsed ? (
                             <button className="w-full flex justify-center items-center rounded-lg hover:bg-white/10 p-2 text-slate-300">
                                 <UserCircleIcon className="w-8 h-8" />
                             </button>
@@ -97,21 +103,22 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onNavLinkClick }) => {
                                 </div>
                                 <ChevronDownIcon className="w-4 h-4 text-slate-300 flex-shrink-0" />
                             </button>
-                        )
-                      }
-                    >
+                        )}
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end" className="w-48">
                         <DropdownMenuItem onClick={() => handleLinkClick('profile')}>
-                            <UserCircleIcon className="w-5 h-5" /> My Profile
+                            <UserCircleIcon className="w-5 h-5 mr-2" /> My Profile
                         </DropdownMenuItem>
                         {user && (user.role === 'admin' || user.role === 'manager') && (
                             <DropdownMenuItem onClick={() => handleLinkClick('settings')}>
-                                <CogIcon className="w-5 h-5" /> Settings
+                                <CogIcon className="w-5 h-5 mr-2" /> Settings
                             </DropdownMenuItem>
                         )}
-                        <div className="my-1 border-t border-slate-100 dark:border-slate-700" />
-                        <DropdownMenuItem onClick={logout} className="text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10">
-                            <ArrowRightStartOnRectangleIcon className="w-5 h-5" /> Logout
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={logout} className="text-red-500 focus:text-red-500">
+                            <ArrowRightStartOnRectangleIcon className="w-5 h-5 mr-2" /> Logout
                         </DropdownMenuItem>
+                      </DropdownMenuContent>
                     </DropdownMenu>
 
                 <div className={`mt-2 flex ${isSidebarCollapsed ? 'justify-center' : 'justify-end'}`}>

@@ -1,16 +1,16 @@
-import React from 'react';
+import { cn } from "@/lib/utils"
 
-/**
- * A simple, re-usable skeleton component that displays a pulsing gray box.
- * Used to create placeholder UIs while data is loading.
- */
-const Skeleton: React.FC<{ className?: string }> = ({ className }) => {
+function Skeleton({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={`bg-slate-200 dark:bg-slate-700 rounded animate-pulse ${className || ''}`}
-      aria-hidden="true"
+      className={cn("animate-pulse rounded-md bg-muted", className)}
+      {...props}
     />
-  );
-};
+  )
+}
 
-export default Skeleton;
+export { Skeleton }
+export default Skeleton

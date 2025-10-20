@@ -11,7 +11,15 @@
       "Bash(git commit -m \"feat: Add Input component (Shadcn UI)\n\n- Create new Input component with Shadcn UI styling\n- Maintain InputField for backward compatibility\n- Add proper focus states and disabled styling\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
       "Bash(git add src/components/ui/Table.tsx)",
       "Bash(git commit -m \"feat: Convert Table component to Shadcn UI\n\n- Replace custom table with proper HTML table elements\n- Add TableHeader, TableBody, TableRow, TableHead, TableCell\n- Maintain TableHeaderCell and TableEmptyState for backward compatibility\n- Use Shadcn UI styling with hover states\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
-      "Bash(git commit -m \"fix: Fix Table component backward compatibility\n\n- Restore compound component pattern (Table.Header, Table.Body, etc.)\n- Keep Shadcn UI styling with proper HTML table elements\n- Support both old and new usage patterns\n- Fix runtime errors in existing code\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")"
+      "Bash(git commit -m \"fix: Fix Table component backward compatibility\n\n- Restore compound component pattern (Table.Header, Table.Body, etc.)\n- Keep Shadcn UI styling with proper HTML table elements\n- Support both old and new usage patterns\n- Fix runtime errors in existing code\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(git commit -m \"fix: Add isSticky prop support to TableHeader\n\n- Add isSticky prop to TableHeader component\n- Apply sticky positioning with backdrop blur when isSticky=true\n- Fix React warning about unknown DOM property\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(git commit -m \"fix: Revert Table component to original implementation\n\n- Restore original DIV-based table (not HTML table elements)\n- Fixes broken table layout across the application\n- Keeps backward compatibility with all existing code\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-select)",
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-checkbox)",
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-switch)",
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-dialog)",
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-dropdown-menu)",
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-toast)"
     ],
     "deny": [],
     "ask": []

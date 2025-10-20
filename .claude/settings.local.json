@@ -3,7 +3,10 @@
     "allow": [
       "Bash(git add postcss.config.js)",
       "Bash(git commit -m \"fix: Change postcss.config.js to CommonJS format\n\n- Fix PostCSS plugin error with Tailwind CSS\n- Server now runs successfully without errors\")",
-      "Bash(git commit -m \"fix: Change postcss config to ES module (.mjs)\n\n- Rename postcss.config.js to postcss.config.mjs\n- Use ES module syntax (export default) instead of CommonJS\n- Fix compatibility with package.json type: module\n- Server now runs without PostCSS errors\")"
+      "Bash(git commit -m \"fix: Change postcss config to ES module (.mjs)\n\n- Rename postcss.config.js to postcss.config.mjs\n- Use ES module syntax (export default) instead of CommonJS\n- Fix compatibility with package.json type: module\n- Server now runs without PostCSS errors\")",
+      "Bash(npm uninstall tailwindcss)",
+      "Bash(npm install --legacy-peer-deps -D tailwindcss@^3.4.0 postcss autoprefixer)",
+      "Bash(git commit -m \"fix: Downgrade to Tailwind CSS v3 for Shadcn UI compatibility\n\n- Uninstall Tailwind CSS v4\n- Install Tailwind CSS v3.4.0 (compatible with Shadcn UI)\n- Fix PostCSS plugin errors\n- Server now runs successfully without any errors\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")"
     ],
     "deny": [],
     "ask": []

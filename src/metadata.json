@@ -1,0 +1,5 @@
+{
+  "name": "CRM Booking App",
+  "description": "A sleek and modern CRM application for managing service bookings. Customers can book appointments for services like Training and Cleaning, and administrators can manage the status of these bookings.",
+  "requestFramePermissions": []
+}

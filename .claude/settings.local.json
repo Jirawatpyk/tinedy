@@ -19,7 +19,12 @@
       "Bash(npm install --legacy-peer-deps @radix-ui/react-switch)",
       "Bash(npm install --legacy-peer-deps @radix-ui/react-dialog)",
       "Bash(npm install --legacy-peer-deps @radix-ui/react-dropdown-menu)",
-      "Bash(npm install --legacy-peer-deps @radix-ui/react-toast)"
+      "Bash(npm install --legacy-peer-deps @radix-ui/react-toast)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Convert remaining components to Shadcn UI (Phase 2)\n\n- Convert Select to Shadcn UI with Radix UI Select primitive\n- Convert Checkbox to Shadcn UI with Radix UI Checkbox\n- Convert Switch to Shadcn UI with Radix UI Switch\n- Convert Dialog (Modal) to Shadcn UI with Radix UI Dialog\n- Convert DropdownMenu to Shadcn UI with Radix UI DropdownMenu\n- Convert Toast to Shadcn UI with Radix UI Toast\n- Create new Textarea component (Shadcn UI)\n- Update Skeleton component to use Shadcn UI styling\n- Replace all custom SVG icons with lucide-react exports in icons.tsx\n\nInstall Radix UI packages:\n- @radix-ui/react-select\n- @radix-ui/react-checkbox\n- @radix-ui/react-switch\n- @radix-ui/react-dialog\n- @radix-ui/react-dropdown-menu\n- @radix-ui/react-toast\n\nAll components now use consistent Shadcn UI design system\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git add src/components/ui/Select.tsx src/components/ui/Dialog.tsx)",
+      "Bash(git commit -m \"fix: Add default exports for backward compatibility\n\n- Add LegacySelect wrapper component for old Select API\n- Add default export to Dialog component\n- Maintains backward compatibility with existing code\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(git add src/components/layout/Sidebar.tsx)",
+      "Bash(git commit -m \"fix: Update Sidebar to use Shadcn UI DropdownMenu API\n\n- Replace old DropdownMenu API with new Shadcn UI version\n- Use DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSeparator\n- Fix runtime error: Cannot read properties of null\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")"
     ],
     "deny": [],
     "ask": []

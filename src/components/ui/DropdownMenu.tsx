@@ -196,4 +196,42 @@ export {
   DropdownMenuRadioGroup,
 }
 
-export default DropdownMenu
+// Legacy DropdownMenu wrapper for backward compatibility
+interface LegacyDropdownMenuProps {
+  trigger?: React.ReactNode;
+  children: React.ReactNode;
+}
+
+const LegacyDropdownMenu: React.FC<LegacyDropdownMenuProps> = ({ trigger, children }) => {
+  const EllipsisVerticalIcon = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+    </svg>
+  )
+
+  const defaultTrigger = (
+    <button
+      className="p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-tinedy-blue focus:ring-offset-2"
+      aria-label="Actions"
+    >
+      <EllipsisVerticalIcon className="w-5 h-5" />
+    </button>
+  )
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        {trigger || defaultTrigger}
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-48">
+        {children}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+
+// Legacy DropdownMenuItem - already compatible with Shadcn UI
+const LegacyDropdownMenuItem = DropdownMenuItem
+
+export { LegacyDropdownMenuItem }
+export default LegacyDropdownMenu
